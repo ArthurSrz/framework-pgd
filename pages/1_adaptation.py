@@ -26,14 +26,13 @@ def run():
         page_icon="🧑‍🔬",
     )
 
-    st.title("Bienvenue sur le framework PGD")
+    st.title("Adaptez le template")
 
     st.sidebar.success("Select a demo above.")
 
     st.markdown(
         """
-        Vous pourrez ici construire votre propre sprint PGD avec 
-        les composants de votre choix.
+        Adaptez selon les spécificités de l'équipe que vous accompagnez
     """
     )
     
