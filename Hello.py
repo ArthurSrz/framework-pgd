@@ -68,7 +68,7 @@ def run():
         
         layout = [
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-            dashboard.Item("first_item", 0, 0, 2, 2),
+            #dashboard.Item("first_item", 0, 0, 2, 2),
             dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=True, moved=False),
             dashboard.Item("third_item", 0, 2, 1, 1, isResizable=True),
         ]    
@@ -82,6 +82,7 @@ def run():
         
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
             with mui.Card:
+                "first_item"
                 key = "8"
                 sx={"maxWidth": 345},
                 children=[
@@ -97,7 +98,7 @@ def run():
                         ]
                     )
                 ]
-            mui.Card("First item", key="first_item")
+            #mui.Card("First item", key="first_item")
             mui.Card("Second item", key="second_item")
             mui.Card("Third item", key="third_item")
             
