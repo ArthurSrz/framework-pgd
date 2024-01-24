@@ -39,30 +39,71 @@ def run():
     
     with elements("dashboard"):
         # First, build a default layout for every element you want to include in your dashboard
+        with mui.Button:
+            mui.icon.EmojiPeople()
+            mui.icon.DoubleArrow()
+            mui.Typography("Button with multiple children")
+        
+        
+        
+        with mui.Card:
+            key = "8"
+            sx={"maxWidth": 345},
+            children=[
+                mui.CardMedia(
+                    sx={"height": 140},
+                    image="https://fastly.picsum.photos/id/404/200/300.jpg?hmac=1i6ra6DJN9kJ9AQVfSf3VD1w08FkegBgXuz9lNDk1OM"
+                ),
+                mui.CardContent("Card content"),
+                mui.CardActions(
+                    [
+                        mui.Button(size="small", children="Share"),
+                        mui.Button(size="small", children="Learn More"),
+                    ]
+                )
+            ]
 
+            
+        
+        
         layout = [
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
             dashboard.Item("first_item", 0, 0, 2, 2),
-            dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=False, moved=False),
-            dashboard.Item("third_item", 0, 2, 1, 1, isResizable=False),
+            dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=True, moved=False),
+            dashboard.Item("third_item", 0, 2, 1, 1, isResizable=True),
         ]    
 
-        # Next, create a dashboard layout using the 'with' syntax. It takes the layout
-        # as first parameter, plus additional properties you can find in the GitHub links below.
-
-        with dashboard.Grid(layout):
-            mui.Paper("First item", key="first_item")
-            mui.Paper("Second item (cannot drag)", key="second_item")
-            mui.Paper("Third item (cannot resize)", key="third_item")
+        
         
         def handle_layout_change(updated_layout):
             # You can save the layout in a file, or do anything you want with it.
             # You can pass it back to dashboard.Grid() if you want to restore a saved layout.
             print(updated_layout)
+        
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
-            mui.Paper("First item", key="first_item")
-            mui.Paper("Second item (cannot drag)", key="second_item")
-            mui.Paper("Third item (cannot resize)", key="third_item")
+            with mui.Card:
+                key = "8"
+                sx={"maxWidth": 345},
+                children=[
+                    mui.CardMedia(
+                        sx={"height": 140},
+                        image="https://fastly.picsum.photos/id/404/200/300.jpg?hmac=1i6ra6DJN9kJ9AQVfSf3VD1w08FkegBgXuz9lNDk1OM"
+                    ),
+                    mui.CardContent("Card content"),
+                    mui.CardActions(
+                        [
+                            mui.Button(size="small", children="Share"),
+                            mui.Button(size="small", children="Learn More"),
+                        ]
+                    )
+                ]
+            mui.Card("First item", key="first_item")
+            mui.Card("Second item", key="second_item")
+            mui.Card("Third item", key="third_item")
+            
+        
+        
+        
 
 if __name__ == "__main__":
     run()
