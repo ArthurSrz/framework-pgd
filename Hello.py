@@ -42,9 +42,9 @@ def run():
         
         layout = [
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-            dashboard.Item("first_card", 0, 0, 2, 3),
-            dashboard.Item("second_card", 2, 0, 2, 2, isDraggable=True, moved=False),
-            dashboard.Item("third_card", 0, 2, 1, 1, isResizable=True),
+            dashboard.Item("first_card", 1, 1, 2, 3, isDraggable=True, isResizable=True, moved=False),
+            dashboard.Item("second_card", 1, 0, 2, 2, isDraggable=True, moved=False),
+            dashboard.Item("third_card", 1, 2, 1, 1, isResizable=True, moved=False),
         ]    
 
         
@@ -66,8 +66,8 @@ def run():
                     mui.CardContent("Etape 1"),
                     mui.CardActions(
                         [
-                            mui.Button(size="small", children="Share"),
-                            mui.Button(size="small", children="Learn More"),
+                            mui.Button(size="small", children="Question"),
+                            mui.Button(size="small", children="Adapter"),
                         ]
                     )
                 ]
@@ -79,8 +79,8 @@ def run():
                 mui.CardContent("Etape 2")
                 mui.CardActions(
                     [
-                        mui.Button(size="small", children="Share"),
-                        mui.Button(size="small", children="Learn More"),
+                        mui.Button(size="small", children="Question"),
+                        mui.Button(size="small", children="Adapter"),
                     ]
                 )
             with mui.Card(key="third_card", sx={"maxWidth": 345}):
@@ -91,8 +91,8 @@ def run():
                 mui.CardContent("Etape 3")
                 mui.CardActions(
                     [
-                        mui.Button(size="small", children="Share"),
-                        mui.Button(size="small", children="Learn More"),
+                        mui.Button(size="small", children="Question"),
+                        mui.Button(size="small", children="Adapter"),
                     ]
                 )
             
