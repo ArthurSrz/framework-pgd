@@ -87,7 +87,8 @@ def run():
                 children=[
                     mui.CardMedia(
                         sx={"height": 140},
-                        image="https://fastly.picsum.photos/id/404/200/300.jpg?hmac=1i6ra6DJN9kJ9AQVfSf3VD1w08FkegBgXuz9lNDk1OM"
+                        image="https://picsum.photos/seed/picsum/200/300
+"
                     ),
                     mui.CardContent("Card content"),
                     mui.CardActions(
