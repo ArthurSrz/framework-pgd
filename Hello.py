@@ -87,8 +87,7 @@ def run():
                 children=[
                     mui.CardMedia(
                         sx={"height": 140},
-                        image="https://picsum.photos/seed/picsum/200/300
-"
+                        image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     ),
                     mui.CardContent("Card content"),
                     mui.CardActions(
@@ -98,7 +97,39 @@ def run():
                         ]
                     )
                 ]
-            mui.Card("First item", key="first_item")
+            with mui.Card:
+                key = "8"
+                sx={"maxWidth": 345},
+                children=[
+                    mui.CardMedia(
+                        sx={"height": 140},
+                        image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    ),
+                    mui.CardContent("Card content"),
+                    mui.CardActions(
+                        [
+                            mui.Button(size="small", children="Share"),
+                            mui.Button(size="small", children="Learn More"),
+                        ]
+                    )
+                ]
+            with mui.Card:
+                key = "8"
+                sx={"maxWidth": 345},
+                children=[
+                    mui.CardMedia(
+                        sx={"height": 140},
+                        image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    ),
+                    mui.CardContent("Card content"),
+                    mui.CardActions(
+                        [
+                            mui.Button(size="small", children="Share"),
+                            mui.Button(size="small", children="Learn More"),
+                        ]
+                    )
+                ]
+            
             mui.Card("Second item", key="second_item")
             mui.Card("Third item", key="third_item")
             
