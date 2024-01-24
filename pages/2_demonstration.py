@@ -41,9 +41,9 @@ def run():
         
         layout = [
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-            dashboard.Item("first_card", 1, 1, 2, 3, isDraggable=False, isResizable=False, moved=True),
-            dashboard.Item("second_card", 1, 0, 2, 2, isDraggable=False, isResizable=False, moved=True),
-            dashboard.Item("third_card", 1, 2, 1, 1, isDraggable=False, isResizable=False, moved=True),
+            dashboard.Item("first_card", 1, 1, 2, 3, isDraggable=False, isResizable=False),
+            dashboard.Item("second_card", 1, 0, 2, 2, isDraggable=False, isResizable=False),
+            dashboard.Item("third_card", 1, 2, 1, 1, isDraggable=False, isResizable=False),
         ]    
 
         
