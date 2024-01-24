@@ -41,9 +41,9 @@ def run():
         
         layout = [
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-            dashboard.Item("first_card", 1, 1, 2, 3, isDraggable=False, isResizable=False),
+            dashboard.Item("first_card", 1, 1, 2, 2, isDraggable=False, isResizable=False, moved = True),
             dashboard.Item("second_card", 1, 0, 2, 2, isDraggable=False, isResizable=False),
-            dashboard.Item("third_card", 1, 2, 1, 1, isDraggable=False, isResizable=False),
+            dashboard.Item("third_card", 0, 2, 1, 2, isDraggable=False, isResizable=False),
         ]    
 
         
@@ -54,22 +54,19 @@ def run():
             print(updated_layout)
         
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
-            with mui.Card:
-                key = "first_card"
-                sx={"maxWidth": 345},
-                children=[
-                    mui.CardMedia(
-                        sx={"height": 140},
-                        image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    ),
-                    mui.CardContent("Etape 1"),
-                    mui.CardActions(
-                        [
-                            mui.Button(size="small", children="Question"),
-                            mui.Button(size="small", children="Adapter"),
-                        ]
-                    )
-                ]
+            with mui.Card(key="first_card", sx={"maxWidth": 345}):
+                mui.CardMedia(
+                    sx={"height": 140},
+                    image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                )
+                mui.CardContent("Etape 1")
+                mui.CardActions(
+                    [
+                        mui.Button(size="small", children="Question"),
+                        mui.Button(size="small", children="Adapter"),
+                    ]
+                )
+
             with mui.Card(key="second_card", sx={"maxWidth": 345}):
                 mui.CardMedia(
                     sx={"height": 140},
@@ -82,6 +79,7 @@ def run():
                         mui.Button(size="small", children="Adapter"),
                     ]
                 )
+            
             with mui.Card(key="third_card", sx={"maxWidth": 345}):
                 mui.CardMedia(
                     sx={"height": 140},
