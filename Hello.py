@@ -68,8 +68,8 @@ def run():
         
         layout = [
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-            dashboard.Item("first_item", 0, 0, 2, 2),
-            dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=True, moved=False),
+            dashboard.Item("first_item", 0, 0, 2, 2, isResizable=True, isDraggable=True),
+            dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=True, moved=True),
             dashboard.Item("third_item", 0, 2, 1, 1, isResizable=True),
         ]    
 
