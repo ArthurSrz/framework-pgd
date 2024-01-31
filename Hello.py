@@ -15,7 +15,7 @@
 import streamlit as st
 from streamlit.logger import get_logger
 from streamlit_elements import dashboard
-from streamlit_elements import elements, mui, html
+from streamlit_elements import elements, mui, html, editor, lazy, sync
 
 LOGGER = get_logger(__name__)
 
@@ -28,7 +28,7 @@ def run():
 
     st.title("Bienvenue sur le framework PGD")
     
-    st.balloons()
+    
     
     st.markdown(
         """
@@ -38,6 +38,42 @@ def run():
     )
 
     st.image("https://science-ouverte.univ-artois.fr/wp-content/uploads/2022/06/DMP.png")
+    
+    st.title("Test Monaco editor")
+    
+    with elements("monaco_editors"):
+
+    # Streamlit Elements embeds Monaco code and diff editor that powers Visual Studio Code.
+    # You can configure editor's behavior and features with the 'options' parameter.
+    #
+    # Streamlit Elements uses an unofficial React implementation (GitHub links below for
+    # documentation).
+
+    
+
+        if "content" not in st.session_state:
+            st.session_state.content = "Default value"
+
+        mui.Typography("Content: ", st.session_state.content)
+
+        def update_content(value):
+            st.session_state.content = value
+        
+        st.markdown(st.session_state.content)
+
+        if st.button("Edit"):
+            editor.Monaco(
+            height=300,
+            defaultValue=st.session_state.content,
+            defaultLanguage="markdown",
+            onChange=lazy(update_content),
+            options={"language": "markdown"}
+        )
+
+        mui.Button("See content", onClick=sync())
+        mui.Button("Update content", onClick=sync())
+
+       
 
     
     
