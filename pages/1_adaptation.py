@@ -81,7 +81,8 @@ def run():
                     editor.Monaco(
                     height=300,
                     defaultValue=st.session_state.content,
-                    onChange=lazy(update_content)
+                    onChange=lazy(update_content),
+                    options={"language": "markdown"}
     )
                 ]
             
