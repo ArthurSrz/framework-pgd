@@ -15,7 +15,7 @@
 import streamlit as st
 from streamlit.logger import get_logger
 from streamlit_elements import dashboard
-from streamlit_elements import elements, mui, html
+from streamlit_elements import elements, mui, html, editor, lazy, sync
 
 LOGGER = get_logger(__name__)
 
@@ -46,7 +46,11 @@ def run():
             dashboard.Item("third_card", 1, 2, 1, 1, isDraggable=True, isResizable=True, moved=False),
         ]    
 
+        def update_content(value):
+            st.session_state.content = value
         
+        if "edit" not in st.session_state:
+            st.session_state.edit = False
         
         def handle_layout_change(updated_layout):
             # You can save the layout in a file, or do anything you want with it.
@@ -58,18 +62,17 @@ def run():
                 key = "first_card"
                 sx={"maxWidth": 345},
                 children=[
-                    mui.CardMedia(
-                        sx={"height": 140},
-                        image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    st.markdown(st.session_state.content) if not st.session_state.edit else
+                    editor.Monaco(
+                        height=300,
+                        defaultValue=st.session_state.content,
+                        defaultLanguage="markdown",
+                        onChange=lazy(update_content),
+                        options={"language": "markdown"}
                     ),
-                    mui.CardContent("Etape 1"),
-                    mui.CardActions(
-                        [
-                            mui.Button(size="small", children="Question"),
-                            mui.Button(size="small", children="Adapter"),
-                        ]
-                    )
-                ]
+                    mui.Button("Edit", onClick=lambda: setattr(st.session_state, "edit", not st.session_state.edit))
+        ]
+                
             with mui.Card(key="second_card", sx={"maxWidth": 345}):
                 mui.CardMedia(
                     sx={"height": 140},

@@ -43,18 +43,10 @@ def run():
     
     with elements("monaco_editors"):
 
-    # Streamlit Elements embeds Monaco code and diff editor that powers Visual Studio Code.
-    # You can configure editor's behavior and features with the 'options' parameter.
-    #
-    # Streamlit Elements uses an unofficial React implementation (GitHub links below for
-    # documentation).
-
-    
-
         if "content" not in st.session_state:
             st.session_state.content = "Default value"
 
-        mui.Typography("Content: ", st.session_state.content)
+        #mui.Typography("Content: ", st.session_state.content)
 
         def update_content(value):
             st.session_state.content = value
@@ -70,8 +62,7 @@ def run():
             options={"language": "markdown"}
         )
 
-        mui.Button("See content", onClick=sync())
-        mui.Button("Update content", onClick=sync())
+            mui.Button("Editer", onClick=sync())
 
        
 
