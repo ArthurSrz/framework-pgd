@@ -65,43 +65,25 @@ def run():
                     onChange=lazy(update_content)
     )
                 ]
-                mui.CardMedia(
-                    sx={"height": 140},
-                    image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                )
-                mui.CardContent("Etape 1")
-                mui.CardActions(
-                    [
-                        mui.Button(size="small", children="Question"),
-                        mui.Button(size="small", children="Adapter"),
-                    ]
-                )
+                
 
             with mui.Card(key="second_card", sx={"maxWidth": 345}):
-                mui.CardMedia(
-                    sx={"height": 140},
-                    image="https://plus.unsplash.com/premium_photo-1691784080844-8300ab4c6790?q=80&w=2968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                )
-                mui.CardContent("Etape 2")
-                mui.CardActions(
-                    [
-                        mui.Button(size="small", children="Question"),
-                        mui.Button(size="small", children="Adapter"),
-                    ]
-                )
+                children = [
+                    editor.Monaco(
+                    height=300,
+                    defaultValue=st.session_state.content,
+                    onChange=lazy(update_content)
+    )
+                ]
             
             with mui.Card(key="third_card", sx={"maxWidth": 345}):
-                mui.CardMedia(
-                    sx={"height": 140},
-                    image="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=3028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                )
-                mui.CardContent("Etape 3")
-                mui.CardActions(
-                    [
-                        mui.Button(size="small", children="Question"),
-                        mui.Button(size="small", children="Adapter"),
-                    ]
-                )
+                children = [
+                    editor.Monaco(
+                    height=300,
+                    defaultValue=st.session_state.content,
+                    onChange=lazy(update_content)
+    )
+                ]
             
             
             
