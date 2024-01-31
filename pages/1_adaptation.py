@@ -37,6 +37,8 @@ def run():
     )
     def update_content(value):
         st.session_state.content = value
+    if "content" not in st.session_state:
+        st.session_state.content = "Default value"
     with elements("dashboard"):
         # First, build a default layout for every element you want to include in your dashboard
         
