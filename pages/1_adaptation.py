@@ -71,55 +71,43 @@ def run():
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
             with mui.Paper(key="editor1", sx={"maxWidth": 345}):
                 mui.Typography("Pas 1", variant="h6")
-                if st.session_state.edit:
-                    editor.Monaco(
-                    height=50,
-                    defaultValue=st.session_state.content,
-                    defaultLanguage="markdown",
-                    onChange=lazy(update_content),
-                    options={"language": "markdown"}
-                )
-                else:
-                    mui.Button("Editer", onClick=sync())
+                editor.Monaco(
+                height=50,
+                defaultValue=st.session_state.content,
+                defaultLanguage="markdown",
+                onChange=lazy(update_content),
+                options={"language": "markdown"})
+                mui.Button("Editer", onClick=sync())
                 
             with mui.Paper(key="editor2", sx={"maxWidth": 345}):
-                mui.Typography("Pas 2", variant="h6")
-                if st.session_state.edit:
-                    editor.Monaco(
-                    height=50,
-                    defaultValue=st.session_state.content,
-                    defaultLanguage="markdown",
-                    onChange=lazy(update_content),
-                    options={"language": "markdown"}
+                editor.Monaco(
+                height=50,
+                defaultValue=st.session_state.content,
+                defaultLanguage="markdown",
+                onChange=lazy(update_content),
+                options={"language": "markdown"}
                 )
-                else:
-                    mui.Button("Editer", onClick=sync())
+                mui.Button("Editer", onClick=sync())
             
             with mui.Paper(key="editor3", sx={"maxWidth": 345}):
-                mui.Typography("Pas 3", variant="h6")
-                if st.session_state.edit:
-                    editor.Monaco(
-                    height=50,
-                    defaultValue=st.session_state.content,
-                    defaultLanguage="markdown",
-                    onChange=lazy(update_content),
-                    options={"language": "markdown"}
+                editor.Monaco(
+                height=50,
+                defaultValue=st.session_state.content,
+                defaultLanguage="markdown",
+                onChange=lazy(update_content),
+                options={"language": "markdown"}
                 )
-                else:
-                    mui.Button("Editer", onClick=sync())
+                mui.Button("Editer", onClick=sync())
             
             with mui.Paper(key="editor4", sx={"maxWidth": 345}):
-                mui.Typography("Pas 4", variant="h6")
-                if st.session_state.edit:
-                    editor.Monaco(
-                    height=50,
-                    defaultValue=st.session_state.content,
-                    defaultLanguage="markdown",
-                    onChange=lazy(update_content),
-                    options={"language": "markdown"}
+                editor.Monaco(
+                height=50,
+                defaultValue=st.session_state.content,
+                defaultLanguage="markdown",
+                onChange=lazy(update_content),
+                options={"language": "markdown"}
                 )
-                else:
-                    mui.Button("Editer", onClick=sync())
+                mui.Button("Editer", onClick=sync())
             
             
             
