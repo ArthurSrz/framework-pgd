@@ -16,6 +16,7 @@ import streamlit as st
 from streamlit.logger import get_logger
 from streamlit_elements import dashboard
 from streamlit_elements import elements, mui, html, editor, lazy, sync
+from streamlit_monaco import st_monaco
 
 LOGGER = get_logger(__name__)
 

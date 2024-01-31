@@ -4,3 +4,4 @@ pandas
 pydeck
 streamlit
 streamlit-elements==0.1.*
+streamlit_monaco
