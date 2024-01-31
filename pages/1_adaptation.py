@@ -15,7 +15,7 @@
 import streamlit as st
 from streamlit.logger import get_logger
 from streamlit_elements import dashboard
-from streamlit_elements import elements, mui, html
+from streamlit_elements import elements, mui, html, editor, lazy, sync
 
 LOGGER = get_logger(__name__)
 
@@ -35,7 +35,8 @@ def run():
         Tadaaam !
     """
     )
-    
+    def update_content(value):
+        st.session_state.content = value
     with elements("dashboard"):
         # First, build a default layout for every element you want to include in your dashboard
         
@@ -55,6 +56,13 @@ def run():
         
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
             with mui.Card(key="first_card", sx={"maxWidth": 345}):
+                children = [
+                    editor.Monaco(
+                    height=300,
+                    defaultValue=st.session_state.content,
+                    onChange=lazy(update_content)
+    )
+                ]
                 mui.CardMedia(
                     sx={"height": 140},
                     image="https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
