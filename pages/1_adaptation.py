@@ -62,7 +62,7 @@ def run():
                 key = "first_card"
                 sx={"maxWidth": 345},
                 children=[
-                    st.markdown(st.session_state.content) if not st.session_state.edit else
+                    mui.TextField(value=st.session_state.content, multiline=True, fullWidth=True, disabled=True) if not st.session_state.edit else
                     editor.Monaco(
                         height=300,
                         defaultValue=st.session_state.content,
@@ -72,7 +72,7 @@ def run():
                     ),
                     mui.Button("Edit", onClick=lambda: setattr(st.session_state, "edit", not st.session_state.edit))
         ]
-                
+              
             with mui.Card(key="second_card", sx={"maxWidth": 345}):
                 mui.CardMedia(
                     sx={"height": 140},
