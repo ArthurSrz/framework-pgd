@@ -77,7 +77,7 @@ def run():
                 defaultLanguage="markdown",
                 onChange=lazy(update_content),
                 options={"language": "markdown"})
-                mui.Button("Editer", onClick=sync())
+                
                 
             with mui.Paper(key="editor2", sx={"maxWidth": 345}):
                 editor.Monaco(
@@ -87,7 +87,7 @@ def run():
                 onChange=lazy(update_content),
                 options={"language": "markdown"}
                 )
-                mui.Button("Editer", onClick=sync())
+                
             
             with mui.Paper(key="editor3", sx={"maxWidth": 345}):
                 editor.Monaco(
@@ -97,7 +97,7 @@ def run():
                 onChange=lazy(update_content),
                 options={"language": "markdown"}
                 )
-                mui.Button("Editer", onClick=sync())
+                
             
             with mui.Paper(key="editor4", sx={"maxWidth": 345}):
                 editor.Monaco(
@@ -107,7 +107,7 @@ def run():
                 onChange=lazy(update_content),
                 options={"language": "markdown"}
                 )
-                mui.Button("Editer", onClick=sync())
+                
             
             
             
