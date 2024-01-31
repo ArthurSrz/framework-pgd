@@ -14,8 +14,7 @@
 
 import streamlit as st
 from streamlit.logger import get_logger
-from streamlit_elements import dashboard
-from streamlit_elements import elements, mui, html, editor, lazy, sync
+from streamlit_elements import elements, mui, html, editor, lazy, sync, dashboard
 
 LOGGER = get_logger(__name__)
 
@@ -45,7 +44,6 @@ def run():
     
     st.title("Streamlit Markdown Editor")
 
-    
 
     with elements("dashboard"):
         # First, build a default layout for every element you want to include in your dashboard
