@@ -81,8 +81,7 @@ def run():
                     options={"language": "markdown"}
                 )
                 else:
-                    st_monaco(value=st.session_state.content, height="300px", language="markdown")
-                mui.Button("Editer", onClick=sync())
+                    mui.Button("Editer", onClick=sync())
                 
             with mui.Paper(key="editor2", sx={"maxWidth": 345}):
                 mui.Typography("Pas 2", variant="h6")
@@ -95,8 +94,7 @@ def run():
                     options={"language": "markdown"}
                 )
                 else:
-                    st_monaco(value=st.session_state.content, height="300px", language="markdown")
-                mui.Button("Editer", onClick=sync())
+                    mui.Button("Editer", onClick=sync())
             
             with mui.Paper(key="editor3", sx={"maxWidth": 345}):
                 mui.Typography("Pas 3", variant="h6")
@@ -109,8 +107,7 @@ def run():
                     options={"language": "markdown"}
                 )
                 else:
-                    st_monaco(value=st.session_state.content, height="300px", language="markdown")
-                mui.Button("Editer", onClick=sync())
+                    mui.Button("Editer", onClick=sync())
             
             with mui.Paper(key="editor4", sx={"maxWidth": 345}):
                 mui.Typography("Pas 4", variant="h6")
@@ -123,8 +120,7 @@ def run():
                     options={"language": "markdown"}
                 )
                 else:
-                    st_monaco(value=st.session_state.content, height="300px", language="markdown")
-                mui.Button("Editer", onClick=sync())
+                    mui.Button("Editer", onClick=sync())
             
             
             
