@@ -16,6 +16,7 @@ import streamlit as st
 from streamlit.logger import get_logger
 from streamlit_elements import dashboard
 from streamlit_elements import elements, mui, html, editor, lazy, sync
+import markdown
 
 LOGGER = get_logger(__name__)
 
@@ -62,14 +63,19 @@ def run():
                 key = "first_card"
                 sx={"maxWidth": 345},
                 children=[
-                    mui.TextField(value=st.session_state.content, multiline=True, fullWidth=True, disabled=True) if not st.session_state.edit else
+                    
                     editor.Monaco(
                         height=300,
                         defaultValue=st.session_state.content,
                         defaultLanguage="markdown",
                         onChange=lazy(update_content),
                         options={"language": "markdown"}
-                    ),
+                    ) if st.session_state.edit else
+                    mui.Iframe(
+                        srcDoc=markdown.markdown(st.session_state.content),
+                        height=300,
+                        width="100%"
+            ),
                     mui.Button("Edit", onClick=lambda: setattr(st.session_state, "edit", not st.session_state.edit))
         ]
               
