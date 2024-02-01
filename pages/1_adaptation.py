@@ -90,8 +90,7 @@ def run():
                 mui.CardActions(
                         mui.Button(
                             #open link in new tab
-                            ahref="https://google.com",
-                            rel="opener referrer",
+                            href="https://google.com",
                             variant="contained",
                             size="small",
                             children="Editer",
