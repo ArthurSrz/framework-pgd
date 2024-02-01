@@ -42,10 +42,12 @@ def run():
         # First, build a default layout for every element you want to include in your dashboard
         
         layout = [
+            
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-            dashboard.Item("first_card", 1, 1, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
-            dashboard.Item("second_card", 1, 0, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
-            dashboard.Item("third_card", 0, 2,2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("first_card", 1, 4, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("second_card", 2, 0, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("third_card", 3, 2,2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            
         ]    
 
         
