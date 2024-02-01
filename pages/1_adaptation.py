@@ -72,6 +72,7 @@ def run():
                 children = [
                     editor.Monaco(
                     height=300,
+                    language = ["markdown"],
                     defaultValue=st.session_state.content,
                     onChange=lazy(update_content),
                     options={"readOnly": False, "languages": "markdown"}
@@ -82,6 +83,7 @@ def run():
                 children = [
                     editor.Monaco(
                     height=300,
+                    language = ["markdown"],
                     defaultValue=st.session_state.content,
                     onChange=lazy(update_content),
                     options={"readOnly": False, "languages": "markdown"}
