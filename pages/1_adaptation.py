@@ -91,6 +91,7 @@ def run():
                         mui.Button(
                             #open link in new tab
                             href="https://google.com",
+                            target = "_blank",
                             variant="contained",
                             size="small",
                             children="Editer",
