@@ -117,12 +117,35 @@ def run():
                     
                 )
             
-            with mui.Card(key="third_card", sx={"maxWidth": 345}):
-                children = [
+            with mui.Card(key="third_card", sx={"maxHeight":505,"maxWidth": 355}):
+                mui.CardMedia(
+                    sx = {"height": 140},
+                    image="https://github.com/ArthurSrz/framework-pgd/blob/main/media/images/images3.png?raw=true",
+                    title="Random image",
+                )
+                mui.CardContent(
+                    children=[
+                        mui.Typography(
+                            gutterBottom=True,
+                            variant="h6",
+                            component="div",
+                            children="3.Choisir le meilleur format pour les données",
+                        ),
+                        mui.Typography(
+                            variant="body2",
+                            color="text.secondary",
+                            children="Assignez un format aux données recensées pour mieux rédiger votre PGD",
+                        ),
+                    ]
+                )
+                mui.CardActions(
+                        mui.Button(
+                            variant="contained",
+                            size="small",
+                            children="Editer",
+                        )
                     
-    
-                ]
-            
+                )
 
             
         
