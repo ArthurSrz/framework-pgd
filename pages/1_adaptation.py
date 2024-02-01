@@ -57,40 +57,29 @@ def run():
             print(updated_layout)
         
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
+            if "my_text" not in st.session_state:
+                st.session_state.my_text = ""
+            def handle_change(event):
+                st.session_state.my_text = event.target.value
             with mui.Card(key="first_card", sx={"maxWidth": 345}):
                 children = [
-                    editor.Monaco(
-                    height=300,
-                    language = ["markdown"],
-                    defaultValue=st.session_state.content,
-                    onChange=lazy(update_content),
-                    options={"readOnly": False}
-    )
+                    
                 ]
 
             with mui.Card(key="second_card", sx={"maxWidth": 345}):
                 children = [
-                    editor.Monaco(
-                    height=300,
-                    language = ["markdown"],
-                    defaultValue=st.session_state.content,
-                    onChange=lazy(update_content),
-                    options={"readOnly": False, "languages": "markdown"}
-    )
+                    
+                
+    
                 ]
             
             with mui.Card(key="third_card", sx={"maxWidth": 345}):
                 children = [
-                    editor.Monaco(
-                    height=300,
-                    language = ["markdown"],
-                    defaultValue=st.session_state.content,
-                    onChange=lazy(update_content),
-                    options={"readOnly": False, "languages": "markdown"}
-    )
+                    
+    
                 ]
             
-            
+
             
         
         
