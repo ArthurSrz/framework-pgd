@@ -16,6 +16,7 @@ import streamlit as st
 from streamlit.logger import get_logger
 from streamlit_elements import dashboard
 from streamlit_elements import elements, mui, html, editor, lazy, sync
+import webbrowser
 
 LOGGER = get_logger(__name__)
 
@@ -77,14 +78,18 @@ def run():
                             variant="body2",
                             color="text.secondary",
                             children="Trouver les éléments à inscrire dans votre PGD avant de commencer sa rédaction.",
+                            
                         ),
                     ]
                 )
+                
                 mui.CardActions(
                         mui.Button(
                             variant="contained",
                             size="small",
                             children="Editer",
+                            onClick=webbrowser.open_new_tab('https://www.google.com'),
+                        
                         ),
                     
                 )
