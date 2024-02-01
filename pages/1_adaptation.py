@@ -207,6 +207,7 @@ def run():
           
             ]
             mui.DataGrid(
+                    sx={"maxHeight":505,"maxWidth": 755},
                     key = "data_test",
                     columns=columns,
                     rows=rows,
