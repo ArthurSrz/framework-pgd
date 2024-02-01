@@ -37,16 +37,15 @@ def run():
     )
     def update_content(value):
         st.session_state.content = value
-    if "content" not in st.session_state:
-        st.session_state.content = "Default value"
+    
     with elements("dashboard"):
         # First, build a default layout for every element you want to include in your dashboard
         
         layout = [
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-            dashboard.Item("first_card", 1, 1, 2, 2, isDraggable=True, isResizable=True, moved = False),
-            dashboard.Item("second_card", 1, 0, 2, 2, isDraggable=True, isResizable=True, moved = False),
-            dashboard.Item("third_card", 0, 2, 1, 2, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("first_card", 1, 1, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("second_card", 1, 0, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("third_card", 0, 2,2, 2.3, isDraggable=True, isResizable=True, moved = False),
         ]    
 
         
@@ -57,21 +56,43 @@ def run():
             print(updated_layout)
         
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
-            if "my_text" not in st.session_state:
-                st.session_state.my_text = ""
-            def handle_change(event):
-                st.session_state.my_text = event.target.value
-            with mui.Card(key="first_card", sx={"maxWidth": 345}):
-                children = [
+            
+            with mui.Card(key="first_card", sx={"maxHeight": 505,"maxWidth": 355}):
+                mui.CardMedia(
+                    sx = {"height": 140},
+                    image="https://raw.githubusercontent.com/ArthurSrz/framework-pgd/main/media/images.png",
+                    title="Random image",
+                )
+                mui.CardContent(
+                    children=[
+                        mui.Typography(
+                            gutterBottom=True,
+                            variant="h6",
+                            component="div",
+                            children="1.Identifier les produits de recherche",
+                        ),
+                        mui.Typography(
+                            variant="body2",
+                            color="text.secondary",
+                            children="Trouver les éléments à inscrire dans votre PGD avant de commencer sa rédaction.",
+                        ),
+                    ]
+                )
+                mui.CardActions(
+                        mui.Button(
+                            variant="contained",
+                            size="small",
+                            children="Editer",
+                        ),
                     
-                ]
+                )
 
-            with mui.Card(key="second_card", sx={"maxWidth": 345}):
-                children = [
-                    
-                
-    
-                ]
+            with mui.Card(key="second_card", sx={"maxHeight":505,"maxWidth": 355}):
+                mui.CardMedia(
+                    sx = {"height": 140},
+                    image="https://raw.githubusercontent.com/ArthurSrz/framework-pgd/main/media/images.png",
+                    title="Random image",
+                )
             
             with mui.Card(key="third_card", sx={"maxWidth": 345}):
                 children = [
