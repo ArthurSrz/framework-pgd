@@ -42,12 +42,17 @@ def run():
     with elements("dashboard"):
         # First, build a default layout for every element you want to include in your dashboard
         
+       
+            
+        
         layout = [
             
             # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
             dashboard.Item("first_card", 1, 4, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
             dashboard.Item("second_card", 2, 0, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
             dashboard.Item("third_card", 3, 2,2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("test", 0, 0, 2, 2.3, isDraggable=True, isResizable=True, moved = False),
+            dashboard.Item("data_test", 1, 0, 2, 2.3, isDraggable=True, isResizable=True, moved = False)
             
         ]    
 
@@ -60,6 +65,7 @@ def run():
         #create a function that opens link in new tab
         def open_link(link):
             webbrowser.open_new_tab(link)
+        
         
         
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
@@ -158,6 +164,63 @@ def run():
                         )
                     
                 )
+            
+            with mui.Card(key="test", sx={"maxHeight":505,"maxWidth": 355}):
+                mui.CardMedia(
+                    sx = {"height": 140},
+                    image="https://github.com/ArthurSrz/framework-pgd/blob/main/media/images/images3.png?raw=true",
+                    title="Random image",
+                )
+                mui.CardContent(
+                    children=[
+                        mui.Typography(
+                            gutterBottom=True,
+                            variant="h6",
+                            component="div",
+                            children="Test",
+                        ),
+                        mui.Typography(
+                            variant="body2",
+                            color="text.secondary",
+                            children="Test",
+                        )
+                    ]
+                )
+                mui.CardActions(
+                        mui.Button(
+                            variant="contained",
+                            size="small",
+                            children="Editer",
+                        )
+                
+                )
+            columns = [
+                { "field": 'id', "headerName": 'ID', "width": 90 },
+                { "field": 'firstName', "headerName": 'First name', "width": 150, "editable": True, },
+                { "field": 'lastName', "headerName": 'Last name', "width": 150, "editable": True, },
+                { "field": 'age', "headerName": 'Age', "type": 'number', "width": 110, "editable": True, },
+            ]   
+            rows = [
+                { "id": 1, "lastName": 'Snow', "firstName": 'Jon', "age": 35 },
+                { "id": 2, "lastName": 'Lannister', "firstName": 'Cersei', "age": 42 },
+                { "id": 3, "lastName": 'Lannister', "firstName": 'Jaime', "age": 45 },
+                { "id": 4, "lastName": 'Stark', "firstName": 'Arya', "age": 16 },
+                { "id": 5, "lastName": 'Targaryen', "firstName": 'Daenerys', "age": None },
+                { "id": 6, "lastName": 'Melisandre', "firstName": None, "age": 150 },
+                { "id": 7, "lastName": 'Clifford', "firstName": 'Ferrara', "age": 44 },
+                { "id": 8, "lastName": 'Frances', "firstName": 'Rossini', "age": 36 },
+                { "id": 9, "lastName": 'Roxie', "firstName": 'Harvey', "age": 65 },
+            ]
+            mui.DataGrid(
+                    key = "data_test",
+                    columns=columns,
+                    rows=rows,
+                    pageSize=5,
+                    checkboxSelection=True,
+                    disableSelectionOnClick=True,
+                )
+                
+                
 
             
         
