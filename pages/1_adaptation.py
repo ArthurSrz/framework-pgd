@@ -39,6 +39,8 @@ def run():
     def update_content(value):
         st.session_state.content = value
     
+    
+    
     with elements("dashboard"):
         # First, build a default layout for every element you want to include in your dashboard
         
@@ -206,16 +208,24 @@ def run():
                 { "id": 3, "nomEtape": 'Choisir le meilleur format pour les données', "descriptionEtape": 'Assignez un format aux données recensées pour mieux rédiger votre PGD'}
           
             ]
+            
+            
+            
             mui.DataGrid(
-                    sx={"maxHeight":505,"maxWidth": 755},
+                    sx={"maxHeight":505,"maxWidth":755},
                     key = "data_test",
                     columns=columns,
                     rows=rows,
                     pageSize=5,
                     checkboxSelection=True,
                     disableSelectionOnClick=True,
+                    onCellEditCommit=sync("my_event"),
+                    
                 )
-                
+            
+            
+            
+           
                 
 
             
