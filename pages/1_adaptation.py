@@ -27,7 +27,7 @@ def run():
         page_icon="🧑‍🔬",
     )
 
-    st.title("Votre Sprint PGD")
+    st.title("Adaptez votre Sprint PGD")
 
     st.sidebar.success("Select a demo above.")
 
