@@ -60,7 +60,7 @@ def run():
             with mui.Card(key="first_card", sx={"maxHeight": 505,"maxWidth": 355}):
                 mui.CardMedia(
                     sx = {"height": 140},
-                    image="https://raw.githubusercontent.com/ArthurSrz/framework-pgd/main/media/images.png",
+                    image="https://github.com/ArthurSrz/framework-pgd/blob/main/media/images/images.png?raw=true",
                     title="Random image",
                 )
                 mui.CardContent(
@@ -90,8 +90,31 @@ def run():
             with mui.Card(key="second_card", sx={"maxHeight":505,"maxWidth": 355}):
                 mui.CardMedia(
                     sx = {"height": 140},
-                    image="https://raw.githubusercontent.com/ArthurSrz/framework-pgd/main/media/images.png",
+                    image="https://github.com/ArthurSrz/framework-pgd/blob/main/media/images/images2.png?raw=true",
                     title="Random image",
+                )
+                mui.CardContent(
+                    children=[
+                        mui.Typography(
+                            gutterBottom=True,
+                            variant="h6",
+                            component="div",
+                            children="2.Expliquer si les données sont réutilisées ou collectées",
+                        ),
+                        mui.Typography(
+                            variant="body2",
+                            color="text.secondary",
+                            children="Classer les données recensées pour mieux rédiger votre PGD",
+                        ),
+                    ]
+                )
+                mui.CardActions(
+                        mui.Button(
+                            variant="contained",
+                            size="small",
+                            children="Editer",
+                        ),
+                    
                 )
             
             with mui.Card(key="third_card", sx={"maxWidth": 345}):
