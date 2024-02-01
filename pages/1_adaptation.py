@@ -57,6 +57,10 @@ def run():
             # You can save the layout in a file, or do anything you want with it.
             # You can pass it back to dashboard.Grid() if you want to restore a saved layout.
             print(updated_layout)
+        #create a function that opens link in new tab
+        def open_link(link):
+            webbrowser.open_new_tab(link)
+        
         
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
             
@@ -85,11 +89,12 @@ def run():
                 
                 mui.CardActions(
                         mui.Button(
+                            #open link in new tab
+                            href="https://google.com",
+                            rel="noopener noreferrer",
                             variant="contained",
                             size="small",
                             children="Editer",
-                            onClick=webbrowser.open_new_tab('https://www.google.com'),
-                        
                         ),
                     
                 )
