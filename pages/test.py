@@ -30,8 +30,9 @@ def run():
 
     # Display the Cards
     for row in st.session_state.rows:
-        st.write(f"## {row['nomEtape']}")
-        st.write(row['descriptionEtape'])
+        with st.container():
+            st.markdown(f"## {row['nomEtape']}")
+            st.markdown(row['descriptionEtape'])
 
 if __name__ == "__main__":
     run()
