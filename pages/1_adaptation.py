@@ -63,7 +63,7 @@ def run():
         def handle_layout_change(updated_layout):
             # You can save the layout in a file, or do anything you want with it.
             # You can pass it back to dashboard.Grid() if you want to restore a saved layout.
-            print(updated_layout)
+            print("Hello")
         #create a function that opens link in new tab
         def open_link(link):
             webbrowser.open_new_tab(link)
@@ -210,12 +210,13 @@ def run():
             ]
             
             if "my_data" not in st.session_state:
-                st.session_state.my_data = None
+                st.session_state.my_data = {}
             
-            if st.session_state.my_data is not None:
-                data = st.session_state.my_data.target.value
-            else:
-                data = ""
+            def handle_cell_edit_stop(params):
+                # params contains information about the edited cell
+                # You can use it to update your state
+                print("update function triggered")
+            
             
             mui.DataGrid(
                     sx={"maxHeight":505,"maxWidth":755},
@@ -225,10 +226,11 @@ def run():
                     pageSize=5,
                     checkboxSelection=True,
                     disableSelectionOnClick=True,
-                    onCellEditStop=sync("my_data"),
+                    onCellEditStop=handle_cell_edit_stop,
                     
                 )
-            st.write(st.session_state.my_data)
+            print(st.session_state.my_data)
+            
             
             
             
