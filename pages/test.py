@@ -14,9 +14,11 @@ def run():
 
     st.sidebar.success("Select a demo above.")
 
-    st.markdown("""
+    st.markdown(
+        """
         Ci-dessous
-    """)
+    """
+    )
 
     # Define the initial rows data for the DataGrid
     if "rows" not in st.session_state:
@@ -25,6 +27,10 @@ def run():
             {"id": 2, "nomEtape": 'Expliquer si les données sont réutilisées ou collectées', "descriptionEtape": 'Classer les données recensées pour mieux rédiger votre PGD'},
             {"id": 3, "nomEtape": 'Choisir le meilleur format pour les données', "descriptionEtape": 'Assignez un format aux données recensées pour mieux rédiger votre PGD'}
         ]
+
+    # Define a state variable to track changes in Streamlit Elements
+    if "element_state" not in st.session_state:
+        st.session_state.element_state = {}
 
     # Display the Streamlit Elements dashboard
     with elements("dashboard"):
@@ -39,7 +45,7 @@ def run():
 
         # Handle layout changes
         def handle_layout_change(updated_layout):
-            print("Layout changed")
+            st.session_state.element_state["layout"] = updated_layout
 
         # Display the dashboard grid with layout
         with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
@@ -62,9 +68,13 @@ def run():
 
                 # Display the Cards
                 for row in st.session_state.rows:
-                    with st.container():
-                        st.markdown(f"## {row['nomEtape']}")
-                        st.markdown(row['descriptionEtape'])
+                    with mui.Card():
+                        mui.CardContent(
+                            children=[
+                                mui.Typography(gutterBottom=True, variant="h6", component="div", children=row['nomEtape']),
+                                mui.Typography(variant="body2", color="text.secondary", children=row['descriptionEtape'])
+                            ]
+                        )
 
 if __name__ == "__main__":
     run()
