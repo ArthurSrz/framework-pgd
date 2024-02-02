@@ -209,7 +209,13 @@ def run():
           
             ]
             
+            if "my_data" not in st.session_state:
+                st.session_state.my_data = None
             
+            if st.session_state.my_data is not None:
+                data = st.session_state.my_data.target.value
+            else:
+                data = ""
             
             mui.DataGrid(
                     sx={"maxHeight":505,"maxWidth":755},
@@ -219,9 +225,10 @@ def run():
                     pageSize=5,
                     checkboxSelection=True,
                     disableSelectionOnClick=True,
-                    onCellEditCommit=sync("my_event"),
+                    onCellEditStop=sync("my_data"),
                     
                 )
+            st.write(st.session_state.my_data)
             
             
             
