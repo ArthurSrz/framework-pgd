@@ -38,7 +38,7 @@ def run():
     #print(etapes)
     
     #create the layout of the app
-    with st.container(border = True, height=500):
+    with st.container(border = True, height=550):
             tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
             with tab1:
                 st.title(etapes[0])
@@ -80,7 +80,7 @@ def run():
                     
     st.container(border = False,height=50)    
 
-    with st.container(border = True, height=500):
+    with st.container(border = True, height=550):
         try : 
             st.title(etapes[1])
             st.image(df_base["img"].iloc[1], width = 300)
@@ -126,7 +126,7 @@ def run():
             
     st.container(border = False,height=50)
     
-    with st.container(border = True, height=500):
+    with st.container(border = True, height=550):
         try : 
             st.title(etapes[2])
             st.image(df_base["img"].iloc[2], width = 300)
@@ -173,7 +173,7 @@ def run():
 
     st.container(border = False,height=50)  
     
-    with st.container(border = True, height=500):
+    with st.container(border = True, height=550):
         try : 
             st.title(etapes[3])
             st.image(df_base["img"].iloc[3], width = 300)
@@ -220,7 +220,7 @@ def run():
     
     st.container(border = False,height=50)  
     
-    with st.container(border = True, height=500):
+    with st.container(border = True, height=550):
         try : 
             st.title(etapes[4])
             st.image(df_base["img"].iloc[4], width = 300)
