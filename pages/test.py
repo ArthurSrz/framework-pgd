@@ -38,10 +38,11 @@ def run():
     #print(etapes)
     
     #create the layout of the app
-    with st.container(border = True, height=350):
+    with st.container(border = True, height=500):
             tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
             with tab1:
                 st.title(etapes[0])
+                st.image(df_base["img"].iloc[0], width = 300)
 
                 col1,col2,col3,col4,col5 = st.columns(5)
 
@@ -79,9 +80,10 @@ def run():
                     
     st.container(border = False,height=50)    
 
-    with st.container(border = True, height=350):
+    with st.container(border = True, height=500):
         try : 
             st.title(etapes[1])
+            st.image(df_base["img"].iloc[1], width = 300)
         except:
             st.info("Il n'y a pas d'étape 2")
         
@@ -124,9 +126,10 @@ def run():
             
     st.container(border = False,height=50)
     
-    with st.container(border = True, height=350):
+    with st.container(border = True, height=500):
         try : 
             st.title(etapes[2])
+            st.image(df_base["img"].iloc[2], width = 300)
         except:
             st.info("Il n'y a pas d'étape 3")
             st.stop()
@@ -173,6 +176,7 @@ def run():
     with st.container(border = True, height=250):
         try : 
             st.title(etapes[3])
+            st.image(df_base["img"].iloc[3], width = 300)
         except:
             st.info("Il n'y a pas d'étape 4")
             st.stop()
@@ -219,6 +223,7 @@ def run():
     with st.container(border = True, height=250):
         try : 
             st.title(etapes[4])
+            st.image(df_base["img"].iloc[4], width = 300)
         except:
             st.info("Il n'y a pas d'étape 5")
             st.stop()
