@@ -38,7 +38,7 @@ def run():
     #print(etapes)
     
     #create the layout of the app
-    with st.container(border = True, height=300):
+    with st.container(border = True, height=350):
             tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
             with tab1:
                 st.title(etapes[0])
@@ -68,7 +68,7 @@ def run():
                         except:
                             st.info("Il n'y a pas de pas 3")
             with tab2:
-                df_filtered = st.data_editor(df_base[df_base["nom de l'étape"] == str(etapes[0])], column_order=["nom de l'étape", "nomPas", "description"], hide_index=True)
+                df_filtered = st.data_editor(df_base, column_order=["nom de l'étape", "nomPas", "description"], hide_index=True)
                 
                 if st.button("Modifier", type="primary"):
                     st.session_state.df_base = df_filtered
@@ -77,21 +77,97 @@ def run():
                     st.rerun()
                     
                     
-        
+    st.container(border = False,height=50)    
 
-    with st.container(border = True, height=250):
+    with st.container(border = True, height=350):
         try : 
             st.title(etapes[1])
         except:
             st.info("Il n'y a pas d'étape 2")
-        st.columns([1,1,1])
+        
+        tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
+        with tab1:
+            
+            col1,col2,col3,col4,col5 = st.columns(5)
+            with col1:
+                with st.container(border = True, height = 100):
+                    e2 = df_base[df_base["nom de l'étape"] == str(etapes[1])]
+                    st.write(e2["nomPas"].iloc[0])
+                    st.markdown(e2["description"].iloc[0])
+            with col2:
+                st.image("https://img.freepik.com/photos-gratuite/impression-floc-peinture-silhouette-eclabousse_1194-8202.jpg?w=900&t=st=1707141902~exp=1707142502~hmac=4951795c48392a58f5044521c1f6007a6953c90deadd3d1b8e8814da8765f44e")
+            with col3:
+                with st.container(border = True, height = 100):
+                    try:
+                        st.write(e2["nomPas"].iloc[1])
+                        st.markdown(e2["description"].iloc[1])
+                    except:
+                        st.info("Il n'y a pas de pas 2")
+            with col4:
+                st.image("https://img.freepik.com/photos-gratuite/impression-floc-peinture-silhouette-eclabousse_1194-8202.jpg?w=900&t=st=1707141902~exp=1707142502~hmac=4951795c48392a58f5044521c1f6007a6953c90deadd3d1b8e8814da8765f44e")
+            with col5:
+                with st.container(border = True, height = 100):
+                    try:
+                        st.write(e2["nomPas"].iloc[2])
+                        st.markdown(e2["description"].iloc[2])
+                    except:
+                        st.info("Il n'y a pas de pas 3")
+        with tab2:
+            df_filtered = st.data_editor(df_base, key = 4, column_order=["nom de l'étape", "nomPas", "description"], hide_index=True)
+            
+            if st.button("Modifier", type="primary", key = 2):
+                st.session_state.df_base = df_filtered
+                st.success("Modifications enregistrées")
+                time.sleep(2)
+                st.rerun()
+            
+            
+    st.container(border = False,height=50)
     
-    with st.container(border = True, height=250):
+    with st.container(border = True, height=350):
         try : 
             st.title(etapes[2])
         except:
             st.info("Il n'y a pas d'étape 3")
         st.columns([1,1,1])
+        tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
+        with tab1:
+            
+            col1,col2,col3,col4,col5 = st.columns(5)
+            with col1:
+                with st.container(border = True, height = 100):
+                    e3 = df_base[df_base["nom de l'étape"] == str(etapes[2])]
+                    st.write(e3["nomPas"].iloc[0])
+                    st.markdown(e3["description"].iloc[0])
+            with col2:
+                st.image("https://img.freepik.com/photos-gratuite/impression-floc-peinture-silhouette-eclabousse_1194-8202.jpg?w=900&t=st=1707141902~exp=1707142502~hmac=4951795c48392a58f5044521c1f6007a6953c90deadd3d1b8e8814da8765f44e")
+            with col3:
+                with st.container(border = True, height = 100):
+                    try:
+                        st.write(e3["nomPas"].iloc[1])
+                        st.markdown(e3["description"].iloc[1])
+                    except:
+                        st.info("Il n'y a pas de pas 2")
+            with col4:
+                st.image("https://img.freepik.com/photos-gratuite/impression-floc-peinture-silhouette-eclabousse_1194-8202.jpg?w=900&t=st=1707141902~exp=1707142502~hmac=4951795c48392a58f5044521c1f6007a6953c90deadd3d1b8e8814da8765f44e")
+            with col5:
+                with st.container(border = True, height = 100):
+                    try:
+                        st.write(e3["nomPas"].iloc[2])
+                        st.markdown(e3["description"].iloc[2])
+                    except:
+                        st.info("Il n'y a pas de pas 3")
+        with tab2:
+            df_filtered = st.data_editor(df_base, key = 6, column_order=["nom de l'étape", "nomPas", "description"], hide_index=True)
+            
+            if st.button("Modifier", type="primary", key = 8):
+                st.session_state.df_base = df_filtered
+                st.success("Modifications enregistrées")
+                time.sleep(2)
+                st.rerun()
+            
+
+    st.container(border = False,height=50)  
     
     with st.container(border = True, height=250):
         try : 
@@ -99,6 +175,8 @@ def run():
         except:
             st.info("Il n'y a pas d'étape 4")
         st.columns([1,1,1])
+    
+    st.container(border = False,height=50)  
     
     with st.container(border = True, height=250):
         try : 
