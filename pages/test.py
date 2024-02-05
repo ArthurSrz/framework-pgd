@@ -1,6 +1,8 @@
 import streamlit as st
 from streamlit.logger import get_logger
-from streamlit_elements import dashboard, elements, mui
+from streamlit_elements import dashboard, elements, mui, lazy, sync
+import pandas as pd
+import time
 
 LOGGER = get_logger(__name__)
 
@@ -16,65 +18,97 @@ def run():
 
     st.markdown(
         """
-        Ci-dessous
+        Découvrez le patchwork conçu par Datactivist et adaptez le.
     """
     )
+    
+    #Initialise st.session_state.df_base with empty dataframe
+    if "df_base" not in st.session_state:
+        st.session_state.df_base = pd.DataFrame()
+    
+    # Retrieve from 0_construction.py edited df
+    df_base = st.session_state.df_base
+    
+    
+    
+    #make a list out of all elements inside the columns of the dataframe "nom de l'étape"
+    etapes = df_base["nom de l'étape"].unique()
+    pas = df_base["nomPas"]
+    description = df_base["description"]
+    #print(etapes)
+    
+    #create the layout of the app
+    with st.container(border = True, height=300):
+            tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
+            with tab1:
+                st.title(etapes[0])
 
-    # Define the initial rows data for the DataGrid
-    if "rows" not in st.session_state:
-        st.session_state.rows = [
-            {"id": 1, "nomEtape": 'Identifier les produits de recherche', "descriptionEtape": 'Trouver les éléments à inscrire dans votre PGD avant de commencer sa rédaction.'},
-            {"id": 2, "nomEtape": 'Expliquer si les données sont réutilisées ou collectées', "descriptionEtape": 'Classer les données recensées pour mieux rédiger votre PGD'},
-            {"id": 3, "nomEtape": 'Choisir le meilleur format pour les données', "descriptionEtape": 'Assignez un format aux données recensées pour mieux rédiger votre PGD'}
-        ]
+                col1,col2,col3,col4,col5 = st.columns(5)
 
-    # Define a state variable to track changes in Streamlit Elements
-    if "element_state" not in st.session_state:
-        st.session_state.element_state = {}
+                with col1:
+                    with st.container(border = True, height = 100):
+                        st.write(pas[0])
+                        st.markdown(description[0])
+                with col2:
+                    st.image("https://img.freepik.com/photos-gratuite/impression-floc-peinture-silhouette-eclabousse_1194-8202.jpg?w=900&t=st=1707141902~exp=1707142502~hmac=4951795c48392a58f5044521c1f6007a6953c90deadd3d1b8e8814da8765f44e")
+                with col3:
+                    with st.container(border = True, height = 100):
+                        try:
+                            st.write(pas[1])
+                            st.markdown(description[1])
+                        except:
+                            st.info("Il n'y a pas de pas 2")
+                with col4:
+                    st.image("https://img.freepik.com/photos-gratuite/impression-floc-peinture-silhouette-eclabousse_1194-8202.jpg?w=900&t=st=1707141902~exp=1707142502~hmac=4951795c48392a58f5044521c1f6007a6953c90deadd3d1b8e8814da8765f44e")
+                with col5:
+                    with st.container(border = True, height = 100):
+                        try:
+                            st.write(pas[2])
+                            st.markdown(description[2])
+                        except:
+                            st.info("Il n'y a pas de pas 3")
+            with tab2:
+                df_filtered = st.data_editor(df_base[df_base["nom de l'étape"] == str(etapes[0])], column_order=["nom de l'étape", "nomPas", "description"], hide_index=True)
+                
+                if st.button("Modifier", type="primary"):
+                    st.session_state.df_base = df_filtered
+                    st.success("Modifications enregistrées")
+                    time.sleep(2)
+                    st.rerun()
+                    
+                    
+        
 
-    # Display the Streamlit Elements dashboard
-    with elements("dashboard"):
-        # Define the layout for the dashboard
-        layout = [
-            dashboard.Item("first_card", 1, 4, 2, 2.3, isDraggable=True, isResizable=True, moved=False),
-            dashboard.Item("second_card", 2, 0, 2, 2.3, isDraggable=True, isResizable=True, moved=False),
-            dashboard.Item("third_card", 3, 2, 2, 2.3, isDraggable=True, isResizable=True, moved=False),
-            dashboard.Item("test", 0, 0, 2, 2.3, isDraggable=True, isResizable=True, moved=False),
-            dashboard.Item("data_test", 1, 0, 2, 2.3, isDraggable=True, isResizable=True, moved=False)
-        ]
+    with st.container(border = True, height=250):
+        try : 
+            st.title(etapes[1])
+        except:
+            st.info("Il n'y a pas d'étape 2")
+        st.columns([1,1,1])
+    
+    with st.container(border = True, height=250):
+        try : 
+            st.title(etapes[2])
+        except:
+            st.info("Il n'y a pas d'étape 3")
+        st.columns([1,1,1])
+    
+    with st.container(border = True, height=250):
+        try : 
+            st.title(etapes[3])
+        except:
+            st.info("Il n'y a pas d'étape 4")
+        st.columns([1,1,1])
+    
+    with st.container(border = True, height=250):
+        try : 
+            st.title(etapes[4])
+        except:
+            st.info("Il n'y a pas d'étape 5")
+        st.columns([1,1,1])
+     
+    
 
-        # Handle layout changes
-        def handle_layout_change(updated_layout):
-            st.session_state.element_state["layout"] = updated_layout
-
-        # Display the dashboard grid with layout
-        with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
-            # Display each card within the dashboard
-            with mui.Card(key="first_card", sx={"maxHeight": 505, "maxWidth": 355}):
-                mui.CardContent(
-                    children=[
-                        mui.Typography(gutterBottom=True, variant="h6", component="div", children="1. Identifier les produits de recherche"),
-                        mui.Typography(variant="body2", color="text.secondary", children="Trouver les éléments à inscrire dans votre PGD avant de commencer sa rédaction.")
-                    ]
-                )
-
-            # Display the editable DataFrame
-            with mui.Card(key="data_test", sx={"maxHeight": 505, "maxWidth": 755}):
-                # Display the editable DataFrame
-                edited_data = st.data_editor(st.session_state.rows)
-
-                # Update session state with edited data
-                st.session_state.rows = edited_data
-
-                # Display the Cards
-                for row in st.session_state.rows:
-                    with mui.Card():
-                        mui.CardContent(
-                            children=[
-                                mui.Typography(gutterBottom=True, variant="h6", component="div", children=row['nomEtape']),
-                                mui.Typography(variant="body2", color="text.secondary", children=row['descriptionEtape'])
-                            ]
-                        )
-
+    
 if __name__ == "__main__":
     run()

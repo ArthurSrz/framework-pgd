@@ -31,9 +31,11 @@ st.title("Construction du sprint PGD")
 
 df = pd.DataFrame(
     [
-        {"nom de l'étape":"Etape 1","img": "https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","description":"ceci"},
-        {"nom de l'étape":"Etape 2","img": "https://plus.unsplash.com/premium_photo-1691784080844-8300ab4c6790?q=80&w=2968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","description":"cela"},
-        {"nom de l'étape":"Etape 3","img": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=3028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","description":"ceci et cela"},
+        {"nom de l'étape":"Etape 1","img": "https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","nomPas":"Pas1","description":"ceci","versClient":True},
+        {"nom de l'étape":"Etape 1","img": "https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","nomPas":"Pas2","description":"ceci","versClient":True},
+        {"nom de l'étape":"Etape 2","img": "https://plus.unsplash.com/premium_photo-1691784080844-8300ab4c6790?q=80&w=2968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","nomPas":"Pas1","description":"cela","versClient":False},
+        {"nom de l'étape":"Etape 3","img": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=3028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","nomPas":"Pas1","description":"ceci et cela","versClient":False},
+        
     ]
 )
 
@@ -49,4 +51,9 @@ edited_df = st.data_editor(df,
 
 
 
-print(edited_df)
+#store the edited dataframe in a state variable
+
+
+st.session_state.df_base = edited_df[edited_df["versClient"] == True]
+
+print(st.session_state.df_base)
