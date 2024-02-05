@@ -23,7 +23,7 @@ LOGGER = get_logger(__name__)
 def run():
     st.set_page_config(
         page_title="Framework PGD",
-        page_icon="🧑‍🔬",
+        page_icon="🧑‍🔬"
     )
 
     st.title("Bienvenue sur le framework PGD")
@@ -33,38 +33,13 @@ def run():
     st.markdown(
         """
         Vous pourrez ici construire votre propre sprint PGD avec 
-        les composants de votre choix.
+        les composants de votre choix.\n
+        **Spoiler** : il y en a beaucoup !
     """
     )
 
-    st.image("https://science-ouverte.univ-artois.fr/wp-content/uploads/2022/06/DMP.png")
+    st.image("https://raw.githubusercontent.com/ArthurSrz/framework-pgd/main/media/images/logo.webp", width = 400)
     
-    st.title("Test Monaco editor")
-    
-    with elements("monaco_editors"):
-
-        if "content" not in st.session_state:
-            st.session_state.content = "Default value"
-
-        #mui.Typography("Content: ", st.session_state.content)
-
-        def update_content(value):
-            st.session_state.content = value
-        
-        st.markdown(st.session_state.content)
-
-        if st.button("Edit"):
-            editor.Monaco(
-            height=300,
-            defaultValue=st.session_state.content,
-            defaultLanguage="markdown",
-            onChange=lazy(update_content),
-            options={"language": "markdown"}
-        )
-
-            mui.Button("Editer", onClick=sync())
-
-       
 
     
     
