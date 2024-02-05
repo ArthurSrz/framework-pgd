@@ -38,7 +38,7 @@ def run():
     """
     )
 
-    st.image("https://raw.githubusercontent.com/ArthurSrz/framework-pgd/main/media/images/logo.webp", width = 400)
+    st.image("https://raw.githubusercontent.com/ArthurSrz/framework-pgd/main/media/images/logo.webp", width = 800)
     
 
     
