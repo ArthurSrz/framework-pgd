@@ -26,7 +26,7 @@ def run():
         page_icon="🧑‍🔬"
     )
 
-    st.title("Bienvenue sur le framework Sprint PGD !")
+    st.title("Bienvenue sur le framework de Sprint PGD !")
     
     
     
