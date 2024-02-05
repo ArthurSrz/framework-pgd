@@ -129,6 +129,7 @@ def run():
             st.title(etapes[2])
         except:
             st.info("Il n'y a pas d'étape 3")
+            st.stop()
         st.columns([1,1,1])
         tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
         with tab1:
@@ -174,6 +175,7 @@ def run():
             st.title(etapes[3])
         except:
             st.info("Il n'y a pas d'étape 4")
+            st.stop()
         
         tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
         with tab1:
@@ -219,6 +221,7 @@ def run():
             st.title(etapes[4])
         except:
             st.info("Il n'y a pas d'étape 5")
+            st.stop()
         
         tab1, tab2 = st.tabs(["👀 Consultation","📝 Modification"])
         with tab1:
